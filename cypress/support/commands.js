@@ -86,7 +86,6 @@ Cypress.Commands.add("CheckDropdownElementOnNavbar", (parentElement, elementName
 });
 
 Cypress.Commands.add("CheckLinksOnSidebar", (elementName, pageLink, needGoBack) => {
-  console.log(elementName, pageLink, needGoBack);
   cy.get('nav.left a[href="#menu"]')
     .should("be.visible")
     .click()

@@ -7,6 +7,15 @@ describe("Add Customer page", () => {
     telephoneno: "123456789123",
   };
 
+  beforeEach(() => {
+    cy.fixture("cookies.json").then((cookies) => {
+      for (let [name, value] of Object.entries(cookies)) {
+        cy.setCookie(name, JSON.stringify(value));
+      }
+    });
+    cy.visit(BASE_URL);
+  });
+
   it("fname", () => {
     cy.visit("https://demo.guru99.com/telecom/addcustomer.php");
 

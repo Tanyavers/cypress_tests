@@ -9,6 +9,15 @@ describe("Negative tests for Add Tariff Plan page", () => {
     sms_charges: "1",
   };
 
+  beforeEach(() => {
+    cy.fixture("cookies.json").then((cookies) => {
+      for (let [name, value] of Object.entries(cookies)) {
+        cy.setCookie(name, JSON.stringify(value));
+      }
+    });
+    cy.visit(BASE_URL);
+  });
+
   it("negative Add Tariff Plan", () => {
     cy.visit("https://demo.guru99.com/telecom/addtariffplans.php");
 

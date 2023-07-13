@@ -1,4 +1,15 @@
 describe("Payment Process page", () => {
+  const BASE_URL = "https://demo.guru99.com/payment-gateway/process_purchasetoy.php";
+
+  beforeEach(() => {
+    cy.fixture("cookies.json").then((cookies) => {
+      for (let [name, value] of Object.entries(cookies)) {
+        cy.setCookie(name, JSON.stringify(value));
+      }
+    });
+    cy.visit(BASE_URL);
+  });
+
   it("Payment Process", () => {
     const cards = [
       {
@@ -24,7 +35,7 @@ describe("Payment Process page", () => {
       },
     ];
 
-    cy.visit("https://demo.guru99.com/payment-gateway/process_purchasetoy.php");
+    cy.visit(BASE_URL);
 
     for (let card of cards) {
       cy.checkInputAndTypeValue("card_nmuber", card.card_nmuber);

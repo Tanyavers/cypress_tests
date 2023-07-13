@@ -1,6 +1,16 @@
 describe("Add Tariff Plan page", () => {
+  const BASE_URL = "https://demo.guru99.com/payment-gateway/process_purchasetoy.php"
+  beforeEach(() => {
+    cy.fixture("cookies.json").then((cookies) => {
+      for (let [name, value] of Object.entries(cookies)) {
+        cy.setCookie(name, JSON.stringify(value));
+      }
+    });
+    cy.visit(BASE_URL);
+  });
+
   it("Card Number is blank", () => {
-    cy.visit("https://demo.guru99.com/payment-gateway/process_purchasetoy.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("Check card number is 16 digits!");
 
@@ -15,7 +25,7 @@ describe("Add Tariff Plan page", () => {
   });
 
   it("Card Number with 15 digits", () => {
-    cy.visit("https://demo.guru99.com/payment-gateway/process_purchasetoy.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("Check card number is 16 digits!");
 
@@ -28,7 +38,7 @@ describe("Add Tariff Plan page", () => {
   });
 
   it("Card Number with special characters", () => {
-    cy.visit("https://demo.guru99.com/payment-gateway/process_purchasetoy.php");
+    cy.visit(BASE_URL);
 
     cy.checkInputAndTypeValue("card_nmuber", "+".repeat(16));
     cy.checkSelectAndSelectValue("month", "5");
@@ -39,7 +49,7 @@ describe("Add Tariff Plan page", () => {
   });
 
   it("Card Number with characters", () => {
-    cy.visit("https://demo.guru99.com/payment-gateway/process_purchasetoy.php");
+    cy.visit(BASE_URL);
 
     cy.checkInputAndTypeValue("card_nmuber", "q".repeat(16));
     cy.checkSelectAndSelectValue("month", "5");
@@ -50,7 +60,7 @@ describe("Add Tariff Plan page", () => {
   });
 
   it("Expiration Month is blank", () => {
-    cy.visit("https://demo.guru99.com/payment-gateway/process_purchasetoy.php");
+    cy.visit(BASE_URL);
 
     cy.checkInputAndTypeValue("card_nmuber", "1".repeat(16));
     cy.checkSelectAndSelectValue("year", "2025");
@@ -64,7 +74,7 @@ describe("Add Tariff Plan page", () => {
   });
 
   it("Expiration Year is blank", () => {
-    cy.visit("https://demo.guru99.com/payment-gateway/process_purchasetoy.php");
+    cy.visit(BASE_URL);
 
     cy.checkInputAndTypeValue("card_nmuber", "1".repeat(16));
     cy.checkSelectAndSelectValue("month", "5");
@@ -78,7 +88,7 @@ describe("Add Tariff Plan page", () => {
   });
 
   it("CVV Code is blank", () => {
-    cy.visit("https://demo.guru99.com/payment-gateway/process_purchasetoy.php");
+    cy.visit(BASE_URL);
 
     cy.checkInputAndTypeValue("card_nmuber", "1".repeat(16));
     cy.checkSelectAndSelectValue("month", "5");
@@ -89,7 +99,7 @@ describe("Add Tariff Plan page", () => {
   });
 
   it("CVV Code with characters", () => {
-    cy.visit("https://demo.guru99.com/payment-gateway/process_purchasetoy.php");
+    cy.visit(BASE_URL);
 
     cy.checkInputAndTypeValue("card_nmuber", "1".repeat(16));
     cy.checkSelectAndSelectValue("month", "5");
@@ -100,7 +110,7 @@ describe("Add Tariff Plan page", () => {
   });
 
   it("CVV Code with special characters", () => {
-    cy.visit("https://demo.guru99.com/payment-gateway/process_purchasetoy.php");
+    cy.visit(BASE_URL);
 
     cy.checkInputAndTypeValue("card_nmuber", "1".repeat(16));
     cy.checkSelectAndSelectValue("month", "5");
