@@ -24,7 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("setValidInputData", (initData, textareas) => {
+Cypress.Commands.add("setValidInputData", (initData, textareas = []) => {
   for (let [inputName, inputValue] of Object.entries(initData)) {
     if (textareas.includes(inputName)) {
       cy.checkTextareaAndTypeValue(inputName, inputValue);
