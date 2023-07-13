@@ -1,4 +1,5 @@
 describe("Negative tests for Add Tariff Plan page", () => {
+  const BASE_URL = "https://demo.guru99.com/telecom/addtariffplans.php";
   const validInputData = {
     rental: "1",
     local_minutes: "1",
@@ -19,14 +20,14 @@ describe("Negative tests for Add Tariff Plan page", () => {
   });
 
   it("negative Add Tariff Plan", () => {
-    cy.visit("https://demo.guru99.com/telecom/addtariffplans.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("please fill all fields Correct Value");
     cy.get('[name="submit"]').should("be.visible").click();
   });
 
   it("test Monthly Rental field", () => {
-    cy.visit("https://demo.guru99.com/telecom/addtariffplans.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("please fill all fields Correct Value");
     cy.setValidInputData(validInputData);
@@ -38,7 +39,7 @@ describe("Negative tests for Add Tariff Plan page", () => {
   });
 
   it("test Free Local Minutes field", () => {
-    cy.visit("https://demo.guru99.com/telecom/addtariffplans.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("please fill all fields Correct Value");
     cy.setValidInputData(validInputData);
@@ -55,7 +56,7 @@ describe("Negative tests for Add Tariff Plan page", () => {
   });
 
   it("test Free International Minutes field", () => {
-    cy.visit("https://demo.guru99.com/telecom/addtariffplans.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("please fill all fields Correct Value");
     cy.setValidInputData(validInputData);
@@ -72,7 +73,7 @@ describe("Negative tests for Add Tariff Plan page", () => {
   });
 
   it("test Free SMS Pack field", () => {
-    cy.visit("https://demo.guru99.com/telecom/addtariffplans.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("please fill all fields Correct Value");
     cy.setValidInputData(validInputData);
@@ -84,7 +85,7 @@ describe("Negative tests for Add Tariff Plan page", () => {
   });
 
   it("test Local Per Minutes Charges field", () => {
-    cy.visit("https://demo.guru99.com/telecom/addtariffplans.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("please fill all fields Correct Value");
     cy.setValidInputData(validInputData);
@@ -101,7 +102,7 @@ describe("Negative tests for Add Tariff Plan page", () => {
   });
 
   it("test International Per Minutes Charges field", () => {
-    cy.visit("https://demo.guru99.com/telecom/addtariffplans.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("please fill all fields Correct Value");
     cy.setValidInputData(validInputData);
@@ -118,7 +119,7 @@ describe("Negative tests for Add Tariff Plan page", () => {
   });
 
   it("test SMS Per Charges field", () => {
-    cy.visit("https://demo.guru99.com/telecom/addtariffplans.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("please fill all fields Correct Value");
     cy.setValidInputData(validInputData);

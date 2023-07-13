@@ -1,4 +1,5 @@
 describe("Add Customer page", () => {
+  const BASE_URL = "https://demo.guru99.com/telecom/addcustomer.php"
   const validInputData = {
     fname: "tanya",
     lname: "vershinina",
@@ -17,7 +18,7 @@ describe("Add Customer page", () => {
   });
 
   it("fname", () => {
-    cy.visit("https://demo.guru99.com/telecom/addcustomer.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("please fill all fields");
     cy.setValidInputData(validInputData, ["addr"]);
@@ -28,7 +29,7 @@ describe("Add Customer page", () => {
   });
 
   it("lname", () => {
-    cy.visit("https://demo.guru99.com/telecom/addcustomer.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("please fill all fields");
     cy.setValidInputData(validInputData, ["addr"]);
@@ -39,7 +40,7 @@ describe("Add Customer page", () => {
   });
 
   it("email", () => {
-    cy.visit("https://demo.guru99.com/telecom/addcustomer.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("please fill all fields");
     cy.setValidInputData(validInputData, ["addr"]);
@@ -52,7 +53,7 @@ describe("Add Customer page", () => {
   });
 
   it("addr", () => {
-    cy.visit("https://demo.guru99.com/telecom/addcustomer.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("please fill all fields");
     cy.setValidInputData(validInputData, ["addr"]);
@@ -63,7 +64,7 @@ describe("Add Customer page", () => {
   });
 
   it("telephoneno", () => {
-    cy.visit("https://demo.guru99.com/telecom/addcustomer.php");
+    cy.visit(BASE_URL);
 
     cy.checkAlertErrorMessage("please fill all fields");
     cy.setValidInputData(validInputData, ["addr"]);
