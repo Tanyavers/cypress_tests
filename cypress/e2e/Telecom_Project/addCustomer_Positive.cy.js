@@ -4,7 +4,7 @@ describe("Add Customer page", () => {
   const CHECK_VALID_URL = "https://demo.guru99.com/telecom/assigntariffplantocustomer.php";
 
   beforeEach(() => {
-    cy.fixture("cookies.json").then((cookies) => {
+    cy.fixture("cookies").then((cookies) => {
       for (let [name, value] of Object.entries(cookies)) {
         cy.setCookie(name, JSON.stringify(value));
       }
@@ -37,7 +37,7 @@ describe("Add Customer page", () => {
 
     let name = "tanya ";
 
-    cy.get("#done").parent().children("label").should("be.visible").click();
+    cy.get('label[for="done"]').should("be.visible").click();
     cy.checkInputAndTypeValue("fname", name);
     cy.checkInputAndTypeValue("lname", "vershinina ");
     cy.checkInputAndTypeValue("emailid", "test@test.com");
@@ -90,7 +90,7 @@ describe("Add Customer page", () => {
 
     let name = "tanya";
 
-    cy.get("#pending").parent().children("label").should("be.visible").click();
+    cy.get('label[for="pending"]').should("be.visible").click();
     cy.checkInputAndTypeValue("fname", name);
     cy.checkInputAndTypeValue("lname", "vershinina ");
     cy.checkInputAndTypeValue("emailid", "test@test.com");
@@ -99,7 +99,7 @@ describe("Add Customer page", () => {
 
     cy.get('input[name="submit"]').should("be.visible").click();
     cy.url().should("contains", ACCESS_URL);
-
+    cy.log(`Success add customer with name: ${name}`);
     cy.get("table")
       .contains("Customer ID")
       .parent()
@@ -107,6 +107,7 @@ describe("Add Customer page", () => {
       .children("h3")
       .invoke("text")
       .then((text) => {
+        cy.log(`customer add with id = ${text}`);
         cy.url().should("eq", `${ACCESS_URL}?uid=${text}`);
 
         cy.visit(CHECK_VALID_URL);

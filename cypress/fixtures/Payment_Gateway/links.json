@@ -1,0 +1,6 @@
+{
+  "Guru99 Payment Gateway": "purchasetoy.php",
+  "Cart": "purchasetoy.php",
+  "Generate Card Number": "cardnumber.php",
+  "Check Credit Card Limit": "check_credit_balance.php"
+}

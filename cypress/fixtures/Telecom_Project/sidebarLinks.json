@@ -1,0 +1,7 @@
+{
+  "Home": "index.html",
+  "Add Customer": "addcustomer.php",
+  "Add Tariff Plans": "addtariffplans.php",
+  "Add Tariff Plan to Customer": "assigntariffplantocustomer.php",
+  "Pay Billing": "billing.php"
+}

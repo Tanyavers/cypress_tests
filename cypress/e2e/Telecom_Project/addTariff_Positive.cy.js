@@ -1,7 +1,7 @@
 describe("Add Tariff Plan page", () => {
   const BASE_URL = "https://demo.guru99.com/telecom/addtariffplans.php";
   beforeEach(() => {
-    cy.fixture("cookies.json").then((cookies) => {
+    cy.fixture("cookies").then((cookies) => {
       for (let [name, value] of Object.entries(cookies)) {
         cy.setCookie(name, JSON.stringify(value));
       }
@@ -82,6 +82,9 @@ describe("Add Tariff Plan page", () => {
 
     cy.get('[name="submit"]').should("be.visible").click();
     cy.url().should("eq", BASE_URL).get("h2").contains("Congratulation you add Tariff Plan");
+
+    cy.log("Add tariff plan with spaces success");
+
     cy.go("back");
 
     cy.checkInputAndTypeValue("rental", "12345");

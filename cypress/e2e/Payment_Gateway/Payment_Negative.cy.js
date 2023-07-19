@@ -1,7 +1,8 @@
 describe("Add Tariff Plan page", () => {
-  const BASE_URL = "https://demo.guru99.com/payment-gateway/process_purchasetoy.php"
+  const BASE_URL = "https://demo.guru99.com/payment-gateway/process_purchasetoy.php";
+
   beforeEach(() => {
-    cy.fixture("cookies.json").then((cookies) => {
+    cy.fixture("cookies").then((cookies) => {
       for (let [name, value] of Object.entries(cookies)) {
         cy.setCookie(name, JSON.stringify(value));
       }
